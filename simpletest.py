@@ -20,11 +20,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-# Can enable debug output by uncommenting: Adafruit_BMP.
+# Can enable debug output by uncommenting:
 #import logging
 #logging.basicConfig(level=logging.DEBUG)
 
-import BMP085 as BMP085
+import Adafruit_BMP.BMP085 as BMP085
 
 # Default constructor will pick a default I2C bus.
 #
@@ -44,10 +44,8 @@ sensor = BMP085.BMP085()
 # datasheet for more details on the meanings of each mode (accuracy and power
 # consumption are primarily the differences).  The default mode is STANDARD.
 #sensor = BMP085.BMP085(mode=BMP085.BMP085_ULTRAHIGHRES)
-import time
-while True:
-  print('Temp = {0:0.2f} *C'.format(sensor.read_temperature()))
-  print('Pressure = {0:0.2f} Pa'.format(sensor.read_pressure()))
-  print('Altitude = {0:0.2f} m'.format(sensor.read_altitude()))
-  print('Sealevel Pressure = {0:0.2f} Pa'.format(sensor.read_sealevel_pressure()))
-  time.sleep(5)
+
+print('Temp = {0:0.2f} *C'.format(sensor.read_temperature()))
+print('Pressure = {0:0.2f} Pa'.format(sensor.read_pressure()))
+print('Altitude = {0:0.2f} m'.format(sensor.read_altitude()))
+print('Sealevel Pressure = {0:0.2f} Pa'.format(sensor.read_sealevel_pressure()))
